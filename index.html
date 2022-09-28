@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;800&display=swap");
+    </style>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&display=swap");
+    </style>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap");
+    </style>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Jost:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
+    </style>
+    <div class="wrapper">
+      <canvas id="canvas"></canvas>
+      <div class="mask">
+        <div class="mask-slider">
+          <div class="page-content">
+            <h1 class="title">JACK<br />GEORGE</h1>
+            <h2 class="description">
+              I am a creative engineer from Los Angeles.
+            </h2>
+          </div>
+          <div class="page-content"></div>
+        </div>
+        <span class="linx"
+          ><a href="/" class="false-link" id="home">Home</a
+          ><a class="false-link" href="/projects" id="projects">Projects</a
+          ><a class="false-link" href="/contact" id="contact">Contact</a></span
+        >
+      </div>
+      <div class="swatch"></div>
+      <div class="cursor-dot-outline"></div>
+      <div class="cursor-dot"></div>
+    </div>
+
+    <script type="module" src="./js/ripple.js"></script>
+    <script type="module" src="./js/cursor.js"></script>
+    <script type="module" src="./js/transitions.js"></script>
+  </body>
+</html>
