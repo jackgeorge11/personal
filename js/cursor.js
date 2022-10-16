@@ -55,19 +55,19 @@ var cursor = {
     });
 
     // Swatch sticking
-    document
-      .querySelector(".swatch")
-      .addEventListener("mouseover", function () {
-        self.cursorSwatch = true;
-        self.toggleCursorSwatch();
-      });
-    document.querySelector(".swatch").addEventListener("mouseout", function () {
-      self.cursorSwatch = false;
-      self.toggleCursorSwatch();
-    });
+    // document
+    //   .querySelector(".swatch")
+    //   .addEventListener("mouseover", function () {
+    //     self.cursorSwatch = true;
+    //     self.toggleCursorSwatch();
+    //   });
+    // document.querySelector(".swatch").addEventListener("mouseout", function () {
+    //   self.cursorSwatch = false;
+    //   self.toggleCursorSwatch();
+    // });
 
     // Anchor sticking
-    document.querySelectorAll(".false-link").forEach((a) => {
+    document.querySelectorAll(".capture").forEach((a) => {
       a.addEventListener("mouseover", function (e) {
         console.log(e.target.getBoundingClientRect());
         self.cursorAnchor = true;
@@ -162,32 +162,33 @@ var cursor = {
     }
   },
 
-  toggleCursorSwatch: function () {
-    var self = this;
+  // toggleCursorSwatch: function () {
+  //   var self = this;
 
-    if (self.cursorSwatch) {
-      self.$dot.style.top = "calc(2vw + 2px)";
-      self.$dot.style.left = "calc(2vw + 2px)";
-      self.$dot.style.transition = "all 0.2s ease-in-out";
-      self.$outline.style.top = "calc(2vw + 2px)";
-      self.$outline.style.left = "calc(2vw + 2px)";
-    } else {
-      self.$dot.style.transition =
-        "opacity 0.3s ease-in-out, transform 0.1s ease-in-out, border-color 0.3s ease-in-out";
-    }
-  },
+  //   if (self.cursorSwatch) {
+  //     self.$dot.style.top = "calc(2vw + 2px)";
+  //     self.$dot.style.left = "calc(2vw + 2px)";
+  //     self.$dot.style.transition = "all 0.2s ease-in-out";
+  //     self.$outline.style.top = "calc(2vw + 2px)";
+  //     self.$outline.style.left = "calc(2vw + 2px)";
+  //   } else {
+  //     self.$dot.style.transition =
+  //       "opacity 0.3s ease-in-out, transform 0.1s ease-in-out, border-color 0.3s ease-in-out";
+  //   }
+  // },
 
   toggleCursorAnchor: function (e, id) {
     var self = this;
+    console.log(e);
 
     if (self.cursorAnchor && id !== pageState) {
-      self.$dot.style.top = `${e.y - e.height / 2}px`;
+      self.$dot.style.top = `calc(${e.top - e.height / 2}px + 1rem)`;
       self.$dot.style.left = `${e.x + e.width / 2}px`;
       self.$dot.style.transition = "all 0.2s ease-in-out";
       self.$outline.style.top = `${e.y - e.height / 2}px`;
       self.$outline.style.left = `${e.x + e.width / 2}px`;
       self.$outline.style.backgroundColor = "#ffffff44";
-      self.$outline.style.border = "2px solid #ffffffee";
+      self.$outline.style.border = "2px solid #000";
       self.$outline.style.width = `${e.width * 1.1}px`;
       self.$outline.style.height = "3vw";
       self.$outline.style.borderRadius = "3px";

@@ -2,12 +2,13 @@ var transitions = {
   pageState: undefined,
   $wrapper: document.querySelector(".wrapper"),
   $nav: document.querySelector("nav"),
+  $colorSwap: document.querySelector(".colorSwap"),
   directions: {
     home: {
       trans: ["0vh", "10%"],
     },
     projects: {
-      trans: ["-100vh", "35%"],
+      trans: ["-100vh", "30%"],
     },
     contact: {
       trans: ["-200vh", "40%"],
@@ -36,21 +37,25 @@ var transitions = {
       .addEventListener("wheel", async function (e) {
         var delta = e.wheelDelta || -e.detail;
 
-        if (!self.transitionDisabled) {
-          if (e.deltaY > 10 && self.pageState !== "contact") {
-            self.transitionDisabled = true;
-            let idx = self.directions.arr.findIndex(
-              (e) => e === self.pageState
-            );
-            self.handleTransition(self.directions.arr[idx + 1]);
-          } else if (delta > 0 && self.pageState !== "home") {
-            self.transitionDisabled = true;
-            let idx = self.directions.arr.findIndex(
-              (e) => e === self.pageState
-            );
-            self.handleTransition(self.directions.arr[idx - 1]);
-          }
-          await self.sleep(900);
+        if (
+          !self.transitionDisabled &&
+          e.deltaY > 25 &&
+          self.pageState !== "contact"
+        ) {
+          self.transitionDisabled = true;
+          let idx = self.directions.arr.findIndex((e) => e === self.pageState);
+          self.handleTransition(self.directions.arr[idx + 1]);
+          await self.sleep(1500);
+          self.transitionDisabled = false;
+        } else if (
+          !self.transitionDisabled &&
+          delta > 0 &&
+          self.pageState !== "home"
+        ) {
+          self.transitionDisabled = true;
+          let idx = self.directions.arr.findIndex((e) => e === self.pageState);
+          self.handleTransition(self.directions.arr[idx - 1]);
+          await self.sleep(1500);
           self.transitionDisabled = false;
         }
       });
@@ -63,8 +68,9 @@ var transitions = {
   handleTransition: function (dir) {
     console.log("executing", this.pageState, dir);
     if (this.pageState && this.pageState !== dir) {
-      this.$wrapper.style.transform = `translateY(${this.directions[dir].trans[0]})`;
+      this.$wrapper.style.top = this.directions[dir].trans[0];
       this.$nav.style.top = this.directions[dir].trans[1];
+      this.$colorSwap.style.bottom = this.directions[dir].trans[1];
       this.pageState = dir;
     }
   },

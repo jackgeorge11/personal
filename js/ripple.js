@@ -22,6 +22,7 @@ function main() {
   );
 
   const swatch = document.querySelector(".swatch");
+  const $swapButton = document.querySelector(".colorSwap");
 
   const scene = new THREE.Scene();
   const spazio = new THREE.Scene();
@@ -77,7 +78,7 @@ function main() {
       easeInOutCubic(x);
   }
 
-  swatch.addEventListener("click", colorSwap, true);
+  $swapButton.addEventListener("click", colorSwap, true);
 
   const uniforms = {
     iTime: { value: 0 },
