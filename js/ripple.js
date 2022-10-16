@@ -45,11 +45,12 @@ function main() {
 
   function colorSwap() {
     swapping.isSwapping = true;
+    let w = swapping.gen();
     swapping.destination = new THREE.Vector4(
       swapping.gen(),
       swapping.gen(),
       swapping.gen(),
-      swapping.gen()
+      w < 0.5 ? w + 0.5 : w
     );
     if (plane.material.uniforms.rings.value > 1) {
       swapping.moreRings = false;
@@ -83,9 +84,9 @@ function main() {
     iResolution: { value: new THREE.Vector3() },
     uDisplacement: { value: null },
     colorSwap: {
-      value: new THREE.Vector4(0.53, 0.67, 0.28, 0.72),
+      value: new THREE.Vector4(0.4, 0.9, 0.1, 0.85),
     },
-    rings: { value: 0.25 },
+    rings: { value: 0.15 },
   };
 
   const plane = new THREE.Mesh(
@@ -173,7 +174,7 @@ function main() {
     ripples.forEach((r, i) => {
       if (r.visible) {
         r.scale.y = r.scale.x = 0.982 * r.scale.x + 0.108;
-        r.rotation.z += 0.005 + 0.001 * (i % 15);
+        r.rotation.z += 0.005 + 0.001 * (i % 50);
         r.material.opacity *= 0.96;
 
         if (r.material.opacity < 0.002) {

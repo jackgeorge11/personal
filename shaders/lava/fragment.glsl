@@ -10,9 +10,9 @@ float PI = 3.14159265359;
 void main()
 {
   vec4 displacement = texture2D(uDisplacement, vUv);
-  float theta = displacement.r * 2. * PI;
+  float theta = displacement.r * (5. + sin(iTime)) * PI;
   vec2 dir = vec2(sin(theta), cos(theta));
-  vec2 uv = vUv + dir * displacement.r * 10.;
+  vec2 uv = vUv + dir * displacement.r * (.8 + (sin(iTime) * .8));
 
   vec2 U = gl_FragCoord.xy;
 	float t = iTime/.1;
@@ -22,5 +22,5 @@ void main()
   t = 1. + cos( length( vec2(cos( t / 98.),  sin( t / 178.)) * S - p ) / 30.) 
           + cos( length( vec2(sin(-t / 124.), cos( t / 104.)) * S - p ) / 20.) 
           + sin( length(q) / 25. ) * sin(q.x / 20.) * sin(q.y / 15.);
-  gl_FragColor = (colorSwap * 2. + tan(vec4(10.,1.,-.45,1) + (t * rings + vec4(uv,-.5,1))));
+  gl_FragColor = (colorSwap * 1.5 + cos(vec4(1.,1.,-.45,1) + (t * rings + vec4(uv,-.5,1))));
 }

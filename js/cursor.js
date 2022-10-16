@@ -1,4 +1,4 @@
-import { pageState } from "./transitions";
+let pageState = null;
 
 var cursor = {
   delay: 8,
@@ -12,6 +12,7 @@ var cursor = {
   cursorAnchor: false,
   $dot: document.querySelector(".cursor-dot"),
   $outline: document.querySelector(".cursor-dot-outline"),
+  // $wrapper: document.querySelector(".wrapper"),
 
   init: function () {
     // Set up element sizes
@@ -66,7 +67,7 @@ var cursor = {
     });
 
     // Anchor sticking
-    document.querySelectorAll("a").forEach((a) => {
+    document.querySelectorAll(".false-link").forEach((a) => {
       a.addEventListener("mouseover", function (e) {
         console.log(e.target.getBoundingClientRect());
         self.cursorAnchor = true;

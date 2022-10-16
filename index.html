@@ -19,28 +19,144 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Jost:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
     </style>
+    <canvas id="canvas"></canvas>
+    <nav class="linx">
+      <a href="/" class="false-link" id="home">Home</a
+      ><a class="false-link" href="/projects" id="projects">Projects</a
+      ><a class="false-link" href="/contact" id="contact">Contact</a>
+    </nav>
     <div class="wrapper">
-      <canvas id="canvas"></canvas>
-      <div class="mask">
+      <div class="grain"></div>
+      <div class="piece home">
+        <h1 class="title">JACK<br />GEORGE</h1>
+        <h2 class="description">I am a creative engineer from Los Angeles.</h2>
+      </div>
+      <div class="piece">
+        <div class="genre">
+          <h4>(ongoing work)</h4>
+          <div class="project">
+            <a href="/contact"><h1>Rootbound</h1></a>
+            <h2><span>::</span>2020</h2>
+          </div>
+          <div class="project">
+            <a href="/contact"><h1>9VT\5</h1></a>
+            <h2><span>::</span>2020</h2>
+          </div>
+        </div>
+        <div class="genre commissions">
+          <h4>(commissions)</h4>
+          <div class="project">
+            <a href="/contact"><h1>Maria Ines Life Interiors</h1></a>
+            <h2><span>::</span>2022</h2>
+          </div>
+          <div class="project">
+            <a href="/contact"><h1>Tess Buckley</h1></a>
+            <h2><span>::</span>2022</h2>
+          </div>
+          <div class="project">
+            <a href="/contact"><h1>Becket Cerny</h1></a>
+            <h2><span>::</span>2021</h2>
+          </div>
+          <div class="project">
+            <a href="/contact"><h1>Eva Tellier</h1></a>
+            <h2><span>::</span>2021</h2>
+          </div>
+          <div class="project">
+            <a href="/contact"> <h1>Court Designs Inc.</h1></a>
+            <h2><span>::</span>2020</h2>
+          </div>
+          <div class="project">
+            <a href="/contact"> <h1>Alex Scher</h1></a>
+            <h2><span>::</span>2020</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="piece contact">
+        clicke <button>here</button> to reveal contact information.
+      </div>
+      <!-- <div class="mask">
         <div class="mask-slider">
-          <div class="page-content">
+          <div class="page-content home">
             <h1 class="title">JACK<br />GEORGE</h1>
             <h2 class="description">
               I am a creative engineer from Los Angeles.
             </h2>
           </div>
-          <div class="page-content"></div>
+          <div class="page-content projects">
+            <div class="genre">
+              <h4>(ongoing work)</h4>
+              <div class="project">
+                <a href="/contact"><h1>Rootbound</h1></a>
+                <h2><span>::</span>2020</h2>
+              </div>
+              <div class="project">
+                <a href="/contact"><h1>9VT\5</h1></a>
+                <h2><span>::</span>2020</h2>
+              </div>
+            </div>
+            <div class="genre commissions">
+              <h4>(commissions)</h4>
+              <div class="project">
+                <a href="/contact"><h1>Maria Ines Life Interiors</h1></a>
+                <h2><span>::</span>2022</h2>
+              </div>
+              <div class="project">
+                <a href="/contact"><h1>Tess Buckley</h1></a>
+                <h2><span>::</span>2022</h2>
+              </div>
+              <div class="project">
+                <a href="/contact"><h1>Becket Cerny</h1></a>
+                <h2><span>::</span>2021</h2>
+              </div>
+              <div class="project">
+                <a href="/contact"><h1>Eva Tellier</h1></a>
+                <h2><span>::</span>2021</h2>
+              </div>
+              <div class="project">
+                <a href="/contact"> <h1>Court Designs Inc.</h1></a>
+                <h2><span>::</span>2020</h2>
+              </div>
+              <div class="project">
+                <a href="/contact"> <h1>Alex Scher</h1></a>
+                <h2><span>::</span>2020</h2>
+              </div>
+            </div>
+          </div>
+          <div class="page-content contact">
+            <form action="">
+              <label for="name">My name is...</label>
+              <input type="text" name="name" />
+              <label for="desire">I would like to...</label>
+              <select name="desire" id="">
+                <option
+                  value=""
+                  selected="true"
+                  disabled="true"
+                  class="default"
+                >
+                  select
+                </option>
+                <option value="">ask a question</option>
+                <option value="">commission a website</option>
+                <option value="">read your tarot</option>
+              </select>
+              <label for="email">You can reach me at...</label>
+              <input type="email" name="email" />
+            </form>
+          </div>
         </div>
         <span class="linx"
           ><a href="/" class="false-link" id="home">Home</a
           ><a class="false-link" href="/projects" id="projects">Projects</a
           ><a class="false-link" href="/contact" id="contact">Contact</a></span
         >
-      </div>
+        <div class="bubble"></div>
+      </div> -->
       <div class="swatch"></div>
-      <div class="cursor-dot-outline"></div>
-      <div class="cursor-dot"></div>
     </div>
+    <div class="cursor-dot-outline"></div>
+    <div class="cursor-dot"></div>
 
     <script type="module" src="./js/ripple.js"></script>
     <script type="module" src="./js/cursor.js"></script>
