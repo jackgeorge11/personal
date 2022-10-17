@@ -1,6 +1,6 @@
-let pageState = null;
+import { Transitions } from "./transitions";
 
-var cursor = {
+export const Cursor = {
   delay: 8,
   _x: 0,
   _y: 0,
@@ -43,16 +43,16 @@ var cursor = {
     var self = this;
 
     // Anchor hovering
-    document.querySelectorAll("a, .swatch").forEach(function (el) {
-      el.addEventListener("mouseover", function () {
-        self.cursorEnlarged = true;
-        self.toggleCursorSize();
-      });
-      el.addEventListener("mouseout", function () {
-        self.cursorEnlarged = false;
-        self.toggleCursorSize();
-      });
-    });
+    // document.querySelectorAll("a, .capture").forEach(function (el) {
+    //   el.addEventListener("mouseover", function () {
+    //     self.cursorEnlarged = true;
+    //     self.toggleCursorSize();
+    //   });
+    //   el.addEventListener("mouseout", function () {
+    //     self.cursorEnlarged = false;
+    //     self.toggleCursorSize();
+    //   });
+    // });
 
     // Swatch sticking
     // document
@@ -69,7 +69,6 @@ var cursor = {
     // Anchor sticking
     document.querySelectorAll(".capture").forEach((a) => {
       a.addEventListener("mouseover", function (e) {
-        console.log(e.target.getBoundingClientRect());
         self.cursorAnchor = true;
         self.toggleCursorAnchor(e.target.getBoundingClientRect(), e.target.id);
       });
@@ -141,7 +140,7 @@ var cursor = {
       if (!self.cursorSwatch && !self.cursorAnchor) {
         self.$outline.style.transform = "translate(-50%, -50%) scale(1.4)";
       } else {
-        self.$outline.style.transform = "translate(-50%, -50%) scale(1.8)";
+        self.$outline.style.transform = "translate(-50%, -50%) scale(1.1)";
       }
     } else {
       self.$dot.style.transform = "translate(-50%, -50%) scale(1)";
@@ -162,37 +161,22 @@ var cursor = {
     }
   },
 
-  // toggleCursorSwatch: function () {
-  //   var self = this;
-
-  //   if (self.cursorSwatch) {
-  //     self.$dot.style.top = "calc(2vw + 2px)";
-  //     self.$dot.style.left = "calc(2vw + 2px)";
-  //     self.$dot.style.transition = "all 0.2s ease-in-out";
-  //     self.$outline.style.top = "calc(2vw + 2px)";
-  //     self.$outline.style.left = "calc(2vw + 2px)";
-  //   } else {
-  //     self.$dot.style.transition =
-  //       "opacity 0.3s ease-in-out, transform 0.1s ease-in-out, border-color 0.3s ease-in-out";
-  //   }
-  // },
-
   toggleCursorAnchor: function (e, id) {
     var self = this;
-    console.log(e);
 
-    if (self.cursorAnchor && id !== pageState) {
-      self.$dot.style.top = `calc(${e.top - e.height / 2}px + 1rem)`;
+    if (self.cursorAnchor && id !== Transitions.pageState) {
+      self.$dot.style.top = `${e.top + e.height / 2}px`;
       self.$dot.style.left = `${e.x + e.width / 2}px`;
       self.$dot.style.transition = "all 0.2s ease-in-out";
-      self.$outline.style.top = `${e.y - e.height / 2}px`;
+      self.$outline.style.top = `${e.top + e.height / 2}px`;
       self.$outline.style.left = `${e.x + e.width / 2}px`;
-      self.$outline.style.backgroundColor = "#ffffff44";
+      self.$outline.style.backgroundColor = "transparent";
       self.$outline.style.border = "2px solid #000";
-      self.$outline.style.width = `${e.width * 1.1}px`;
-      self.$outline.style.height = "3vw";
+      self.$outline.style.width = `${e.width + 3}px`;
+      self.$outline.style.height = `${e.height + 1}px`;
       self.$outline.style.borderRadius = "3px";
       self.$outline.style.transform = "translate(-50%, -50%)";
+      // self.$outline.style.mixBlendMode = "color-burn";
     } else {
       self.$dot.style.transition =
         "opacity 0.3s ease-in-out, transform 0.1s ease-in-out, border-color 0.3s ease-in-out";
@@ -205,4 +189,4 @@ var cursor = {
   },
 };
 
-cursor.init();
+Cursor.init();

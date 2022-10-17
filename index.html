@@ -20,13 +20,13 @@
       @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Jost:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
     </style>
     <canvas id="canvas"></canvas>
-    <nav class="linx">
-      <a href="/" class="false-link capture" id="home">Home</a
-      ><a class="false-link capture" href="/projects" id="projects">Projects</a
-      ><a class="false-link capture" href="/contact" id="contact">Contact</a>
+    <nav>
+      <a href="/" class="nav-link capture" id="home">Home</a
+      ><a class="nav-link capture" href="/projects" id="projects">Projects</a
+      ><a class="nav-link capture" href="/contact" id="contact">Contact</a>
       <!-- <div class="swatch"></div> -->
     </nav>
-    <button class="capture colorSwap">Transform</button>
+    <button class="capture colorSwap"></button>
     <div class="wrapper">
       <div class="grain"></div>
       <div class="piece home">
@@ -37,38 +37,40 @@
         <div class="genre">
           <h4>(ongoing work)</h4>
           <div class="project">
-            <a href="/contact"><h1>Rootbound</h1></a>
+            <a href="/contact" class="capture"><h1>Rootbound</h1></a>
             <h2><span>::</span>2020</h2>
           </div>
           <div class="project">
-            <a href="/contact"><h1>9VT\5</h1></a>
+            <a href="/contact" class="capture"><h1>9VT\5</h1></a>
             <h2><span>::</span>2020</h2>
           </div>
         </div>
         <div class="genre commissions">
           <h4>(commissions)</h4>
           <div class="project">
-            <a href="/contact"><h1>Maria Ines Life Interiors</h1></a>
+            <a href="/contact" class="capture"
+              ><h1>Maria Ines Life Interiors</h1></a
+            >
             <h2><span>::</span>2022</h2>
           </div>
           <div class="project">
-            <a href="/contact"><h1>Tess Buckley</h1></a>
+            <a href="/contact" class="capture"><h1>Tess Buckley</h1></a>
             <h2><span>::</span>2022</h2>
           </div>
           <div class="project">
-            <a href="/contact"><h1>Becket Cerny</h1></a>
+            <a href="/contact" class="capture"><h1>Becket Cerny</h1></a>
             <h2><span>::</span>2021</h2>
           </div>
           <div class="project">
-            <a href="/contact"><h1>Eva Tellier</h1></a>
+            <a href="/contact" class="capture"><h1>Eva Tellier</h1></a>
             <h2><span>::</span>2021</h2>
           </div>
           <div class="project">
-            <a href="/contact"> <h1>Court Designs Inc.</h1></a>
+            <a href="/contact" class="capture"> <h1>Court Designs Inc.</h1></a>
             <h2><span>::</span>2020</h2>
           </div>
           <div class="project">
-            <a href="/contact"> <h1>Alex Scher</h1></a>
+            <a href="/contact" class="capture"> <h1>Alex Scher</h1></a>
             <h2><span>::</span>2020</h2>
           </div>
         </div>
@@ -87,7 +89,7 @@
     <div class="cursor-dot"></div>
 
     <script type="module" src="./js/ripple.js"></script>
-    <script type="module" src="./js/cursor.js"></script>
+    <!-- <script type="module" src="./js/cursor.js"></script> -->
     <script type="module" src="./js/transitions.js"></script>
   </body>
 </html>
