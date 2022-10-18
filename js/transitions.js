@@ -210,6 +210,7 @@ export const Transitions = {
         this.pageState = path;
       } else if (!this.pageState) {
         this.pageState = "home";
+        this.$nav.className = "home";
       }
 
       this.$colorSwap.textContent =
@@ -301,6 +302,7 @@ export const Transitions = {
       this.$wrapper.style.top = this.directions[dir].trans[0];
       this.$nav.style.top = this.directions[dir].trans[1];
       this.$colorSwap.style.bottom = this.directions[dir].trans[1];
+      window.history.pushState("", "", dir === "home" ? "/" : dir);
       this.pageState = dir;
       this.$nav.className = dir;
     }
